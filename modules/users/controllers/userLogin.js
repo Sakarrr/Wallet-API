@@ -26,11 +26,12 @@ const userLogin = async (req, res) => {
 
   // Success
   const getUserForAccessToken = await Users.findOne({
-    email: email,
+    _id: req.user_id,
   });
 
   const accessToken = jwt.sign(
     {
+      _id: getUserForAccessToken._id,
       email: getUserForAccessToken.email,
       name: getUserForAccessToken.name,
     },
