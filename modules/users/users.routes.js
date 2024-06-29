@@ -9,7 +9,7 @@ userRouter.post("/register", userRegister);
 userRouter.post("/login", userLogin);
 
 // Protected route
-userRouter.use(auth);
-userRouter.get("/dashboard", userDashboard);
+// userRouter.use(auth); // Another way to use middleware.
+userRouter.get("/dashboard", auth, userDashboard);
 
 module.exports = userRouter;
