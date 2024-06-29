@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const userRouter = require("./modules/users/users.routes");
+const incomeRouter = require("./modules/income/income.routes");
 
 require("dotenv").config();
 
@@ -22,6 +23,7 @@ mongoose
 
 // Routes
 app.use("/users", userRouter);
+app.use("/income", incomeRouter);
 
 app.listen(8000, () => {
   console.log("Server started successfully!");
